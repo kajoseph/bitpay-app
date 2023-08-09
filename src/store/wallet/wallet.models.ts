@@ -232,9 +232,10 @@ export interface TransactionOptions {
   payProUrl?: string;
   sendMax?: boolean;
   payProDetails?: any;
+  replacesTxid?: string; // Replacing tx by fee or nonce
   // btc
   enableRBF?: boolean;
-  replaceTxByFee?: boolean;
+  replaceTxByFee?: boolean; // TODO remove. This flag isn't needed once replacesTxid is fully implemented
   // eth
   gasPrice?: number;
   from?: string;
@@ -283,7 +284,7 @@ export interface TransactionProposal {
   walletId: string;
   nonce?: number;
   enableRBF?: boolean;
-  replaceTxByFee?: boolean;
+  replaceTxByFee?: boolean; // TODO remove. This flag isn't needed once replacesTxid is fully implemented
   toAddress: string;
   outputs: Array<{
     amount: number | string; // Support BN
@@ -326,6 +327,7 @@ export interface TransactionProposal {
   requiredRejections: number;
   raw?: string;
   txid?: string;
+  replacesTxid?: string;
 }
 
 export interface ProposalErrorHandlerProps {

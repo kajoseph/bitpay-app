@@ -303,6 +303,7 @@ const TransactionDetails = () => {
         feeLevel: 'priority',
         recipient,
         message: txp.message,
+        replacesTxid: txp.txid,
       };
 
       const {txDetails, txp: newTxp} = await dispatch(

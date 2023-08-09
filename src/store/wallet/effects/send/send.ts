@@ -642,6 +642,7 @@ const buildTransactionProposal =
           case 'btc':
             txp.enableRBF = tx.enableRBF;
             txp.replaceTxByFee = tx.replaceTxByFee;
+            txp.replacesTxid = tx.replacesTxid;
             break;
           case 'eth':
           case 'matic':
@@ -778,9 +779,8 @@ const buildTransactionProposal =
             txp.inputs = inputs;
             txp.fee = tx.fee;
             txp.feeLevel = undefined;
-            if (tx.replaceTxByFee) {
-              txp.replaceTxByFee = true;
-            }
+            txp.replaceTxByFee = tx.replaceTxByFee;
+            txp.replacesTxid = tx.replacesTxid;
             txp.outputs.push({
               toAddress: tx.toAddress,
               amount: tx.amount!,
@@ -791,6 +791,7 @@ const buildTransactionProposal =
           case 'fromReplaceByFee':
             txp.inputs = tx.inputs;
             txp.replaceTxByFee = true;
+            txp.replacesTxid = tx.replacesTxid;
             if (recipientList) {
               recipientList.forEach(r => {
                 const formattedAmount = dispatch(
@@ -822,6 +823,16 @@ const buildTransactionProposal =
               amount: tx.amount!,
               message: tx.description,
               data: tx.data,
+            });
+            break;
+          case 'speedupEth':
+            txp.replacesTxid = tx.replacesTxid;
+            txp.outputs.push({
+              toAddress: tx.toAddress,
+              amount: tx.amount!,
+              message: tx.description,
+              data: tx.data,
+              gasLimit: tx.gasLimit,
             });
             break;
           default:
@@ -1408,6 +1419,7 @@ export const buildEthERCTokenSpeedupTx =
           customData,
           feeLevel: 'urgent',
           context: 'speedupEth' as TransactionOptionsContext,
+          replacesTxid: transaction.txid,
         });
       } catch (e) {
         return reject(e);
