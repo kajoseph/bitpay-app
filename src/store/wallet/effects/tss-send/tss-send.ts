@@ -25,7 +25,7 @@ import {checkBiometricForSending, getTx} from '../send/send';
 
 const BWC = BwcProvider.getInstance();
 
-const {TssSign} = require('bitcore-wallet-client/ts_build/src/lib/tsssign');
+const {TssSign} = require('@bitpay-labs/bitcore-wallet-client');
 
 export interface TSSSigningCallbacks {
   onStatusChange: (status: TSSSigningStatus) => void | Promise<void>;

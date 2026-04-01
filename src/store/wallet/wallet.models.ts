@@ -1,6 +1,5 @@
-import API from 'bitcore-wallet-client/ts_build/src';
+import {API, Credentials} from '@bitpay-labs/bitcore-wallet-client';
 import {ReactElement} from 'react';
-import {Credentials} from 'bitcore-wallet-client/ts_build/src/lib/credentials';
 import {RootState} from '../index';
 import {Invoice} from '../shop/shop.models';
 import {Network} from '../../constants';

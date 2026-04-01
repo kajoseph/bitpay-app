@@ -20,7 +20,7 @@ import {
 } from '../../../store/app/app.actions';
 import {TextInput} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import {Constants} from 'bitcore-wallet-client/ts_build/src/lib/common';
+import {Constants} from '@bitpay-labs/bitcore-wallet-client';
 import {checkPrivateKeyEncrypted} from '../../../store/wallet/utils/wallet';
 
 const EncryptPasswordContainer = styled.SafeAreaView`

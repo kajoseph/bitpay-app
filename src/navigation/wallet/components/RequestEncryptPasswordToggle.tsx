@@ -15,7 +15,7 @@ import {
   sleep,
 } from '../../../utils/helper-methods';
 import {useTranslation} from 'react-i18next';
-import {Constants} from 'bitcore-wallet-client/ts_build/src/lib/common';
+import {Constants} from '@bitpay-labs/bitcore-wallet-client';
 import {checkPrivateKeyEncrypted} from '../../../store/wallet/utils/wallet';
 import {useAppDispatch} from '../../../utils/hooks';
 

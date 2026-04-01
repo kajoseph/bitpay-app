@@ -48,7 +48,7 @@ import {
 import {useTranslation} from 'react-i18next';
 import {IsVMChain} from '../../../store/wallet/utils/currency';
 import {TouchableOpacity} from '@components/base/TouchableOpacity';
-import {Constants} from 'bitcore-wallet-client/ts_build/src/lib/common';
+import {Constants} from '@bitpay-labs/bitcore-wallet-client';
 import {isTSSKey} from '../../../store/wallet/effects/tss-send/tss-send';
 import {logManager} from '../../../managers/LogManager';
 

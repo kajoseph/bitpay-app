@@ -1,5 +1,4 @@
-import BWC, {TssKey} from 'bitcore-wallet-client';
-import {Constants} from 'bitcore-wallet-client/ts_build/src/lib/common';
+import BWC, {Constants, TssKey} from '@bitpay-labs/bitcore-wallet-client';
 import {PAYPRO_TRUSTED_KEYS} from '@env';
 import {
   APP_NAME,
@@ -7,7 +6,7 @@ import {
   BASE_BWS_URL,
   BWC_TIMEOUT,
 } from '../constants/config';
-import {KeyOptions} from 'bitcore-wallet-client/ts_build/src/lib/key';
+import type {KeyOptions} from '@bitpay-labs/bitcore-wallet-client/ts_build/src/lib/key';
 
 interface KeyOpts {
   seedType: string;
